@@ -1,0 +1,5 @@
+ * github
+ * organize (folders)
+ * break file into many files
+ * make DF faster
+ * reference image

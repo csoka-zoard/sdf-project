@@ -1,0 +1,16 @@
+bugfix
+nagy rács referencia
+
+rekonstrukció
+absz hiba
+gradhossz (egzakt számítás)
+
+--
+
+Görbülete görbének (megjeleníteni)
+
+Majd Kappa (=görbület), x és y szerint
+
+(octree gyorsítás)
+
+[centrális differencia]
