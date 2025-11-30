@@ -47,7 +47,7 @@ def img_add_curvatures(img, curvatures, extent = 1.0):
         p_px = world_to_px(p)
         draw.ellipse(
             [p_px[0] - r_px, p_px[1] - r_px, p_px[0] + r_px, p_px[1] + r_px],
-            fill=(int(v * 16.0), 0, 0)
+            fill=(int(v * 24.0), 0, 0)
         )
 
 def sdf_to_img(sdf, image_size):

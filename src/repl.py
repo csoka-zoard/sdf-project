@@ -66,11 +66,6 @@ def show_upscale_diff(n = 32):
     img_add_curvatures(img, curvat)
     grad_upscaled = sdf_gradient(sdf_upscaled, m)
     grad_big = sdf_gradient(sdf_big, m)
-    img = sdf_to_img(sdf_apply(grad_big, lambda vec: 0.3 * math.sqrt(vec[0]**2+vec[1]**2)), image_size)
+    #img = sdf_to_img(sdf_apply(grad_big, lambda vec: 0.3 * math.sqrt(vec[0]**2+vec[1]**2)), image_size)
     save_img(img)
 
-
-# TODO:
-#  * sdf to contain the curve from which distance was measured
-#  * way to display a b-curve on the image
-#  * highlight tool that highlights point at (x, y) and its curve

@@ -6,22 +6,47 @@ def B_segment(curve, t):
     Q0 = t * P0 + (1 - t) * P1
     return (float(Q0[0]), float(Q0[1])), 0
 
+
+# def B_quad(curve, t):
+#     P0 = curve[0]
+#     P1 = curve[1]
+#     P2 = curve[2]
+#     Q0 = t * P0 + (1 - t) * P1
+#     Q1 = t * P1 + (1 - t) * P2
+#     R0 = t * Q0 + (1 - t) * Q1
+#     # B'
+#     dB = 2 * ((1 - t) * (P1 - P0) + t * (P2 - P1))
+#     # B''
+#     ddB = 2 * (P2 - 2 * P1 + P0)
+
+#     numer = dB[0] * ddB[1] - dB[1] * ddB[0]
+#     denom = (dB[0]**2 + dB[1]**2)**1.5
+#     kappa = np.abs(numer) / denom # if denom > 1e-12 else 0.0
+#     return (float(R0[0]), float(R0[1])), kappa
+
 def B_quad(curve, t):
     P0 = curve[0]
     P1 = curve[1]
     P2 = curve[2]
-    Q0 = t * P0 + (1 - t) * P1
-    Q1 = t * P1 + (1 - t) * P2
-    R0 = t * Q0 + (1 - t) * Q1
+
+    # B
+    Q0 = (1 - t) * P0 + t * P1
+    Q1 = (1 - t) * P1 + t * P2
+    R0 = (1 - t) * Q0 + t * Q1
+
     # B'
     dB = 2 * ((1 - t) * (P1 - P0) + t * (P2 - P1))
+
     # B''
     ddB = 2 * (P2 - 2 * P1 + P0)
 
+    # kappa
     numer = dB[0] * ddB[1] - dB[1] * ddB[0]
     denom = (dB[0]**2 + dB[1]**2)**1.5
-    kappa = np.abs(numer) / denom # if denom > 1e-12 else 0.0
+    kappa = abs(numer) / denom if denom > 1e-12 else 0.0
+
     return (float(R0[0]), float(R0[1])), kappa
+
 
 def B(curve, fn, n, ret):
     for i in range(n + 1):
